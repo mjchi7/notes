@@ -6,9 +6,9 @@ Tips/Tricks/Notes encountered during development
 - do not use "not", "is" when comparing pd.DataFrame or pd.Series's cell value.
 - Explicitly put parantheses around a boolean returning operation. eg.:
     ``` python
-    NO: 
+    #NO: 
     df['A'] == 'aa' & df['B'] == 'cc'
-    YES: 
+    #YES: 
     (df['A'] == 'aa') & (df['B'] == 'cc')
     ```
 ## 2. JSON cannot serialize numpy type
