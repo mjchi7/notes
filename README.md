@@ -13,4 +13,21 @@ Tips/Tricks/Notes encountered during development
     ```
 ## 2. JSON cannot serialize numpy type
 - When trying to serialize numpy's type (np.int64, np.float64,..), error will be thrown complaining:
-  "
+  
+## 3. Matplotlib backend
+### 3.1 Mac OSX Matplotlib backend
+- Download pyqt5 and pyside2
+- Right after import statement, make matplotlib use Qt5Agg backend
+    ``` python
+    import matplotlib
+    matplotlib.use('Qt5Agg')
+    import matplotlib.pyplot as plt
+    ```
+### 3.2 Linux CentOS Matplotlib backend
+- Use 'agg' backend for Linux CentOS
+    ``` python
+    import matplotlib
+    matplotlib.use('agg')
+    import matplotlib.pyplot as plt
+    ```
+
