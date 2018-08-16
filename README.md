@@ -31,3 +31,7 @@ Tips/Tricks/Notes encountered during development
     import matplotlib.pyplot as plt
     ```
 
+## 4.XGBoost 
+### 4.1 xgboost.XGBRegressor.fit() v.s. xgboost.train()
+- Both are actually doing the same thing (fitting training data to training label). However, in the parameter list, xgboost.XGBRegressor takes in n_estimators, while xgboost.train() takes num_boost_rounds 
+- Reference: https://stackoverflow.com/questions/46943674/how-to-get-predictions-with-xgboost-and-xgboost-using-scikit-learn-wrapper-to-ma
