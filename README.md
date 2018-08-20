@@ -40,3 +40,34 @@ Tips/Tricks/Notes encountered during development
 - Great details on how gradient boosted trees work in code terms. 
 - Understanding how tree is constructed is a challenge though.
 - https://www.kaggle.com/grroverpr/gradient-boosting-simplified/
+
+## 6. Pandas Dataframe
+### 6.1 Accessing underlying np.array with .values
+- To manipulate the dataframe's underlying np.array, use column.value
+- For example:
+    ``` python
+    idx_ = df.index.values
+    col1_ = df.col1.values
+    col2_ = df.col2.values
+   ```
+- Any manipulation done on the ".values" will be reflected in the dataframe. 
+- For example:
+    ``` python
+    col1_[10] = 8 
+    # then
+    print(df.loc[10, 'col1'])
+    -> 8
+    ```
+### 6.2 Performance improvement
+- Using my current setup, manipulating dataframe directly takes 0.2 seconds for the following operation
+    ``` python
+    df.loc[idx, 'gen_make'] = df.loc[idx, 'gen_model'].replace("series", "") + substring
+    ```
+- If the same operation is performed on underlying np.array, it takes 7.3e-6 seconds. Improvement up to 25,000!
+    ``` python
+    make_ = df.gen_make.values # To get the pointer for "gen_make" column in dataframe df
+    # SAME OPERATION AS BEFORE
+    make_[idx] = make[idx].replace("series","") + substring
+    ```
+
+   
